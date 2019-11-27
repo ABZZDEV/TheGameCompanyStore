@@ -1,7 +1,7 @@
 @echo off
 cd /
 REM This points to the correct directory for a local github install of the project.
-cd C:\Users\abzzd\Documents\GitHub\SageTeamManagerX\TeamX
+cd C:\Users\Abdullah Shah\OneDrive\Documents\GitHub\csgo-e-commerce-website\TeamX\
 python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
