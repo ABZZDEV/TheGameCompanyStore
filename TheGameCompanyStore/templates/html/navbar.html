@@ -1,12 +1,21 @@
 <style>
 
+body {
+    padding: 70px 0px 0px 0px;
+}
+
+a, a:visited, a:hover {
+	text-decoration: none;
+	color: white;
+}
+
 .over {
     z-index: 9999;
 }
 
 .navigation {
 	 height: 70px !important;
-	 background: #5D8C60 !important;
+	 background: rgb(56, 56, 56) !important;
 }
  .brand {
 	 position: absolute;
@@ -41,7 +50,7 @@
 	 display: block;
 	 padding: 0 20px;
 	 line-height: 70px;
-	 background: #5D8C60;
+	 background: rgb(56, 56, 56);
 	 color: #fff;
 	 text-decoration: none;
 }
@@ -149,19 +158,12 @@
 	 padding: 10px;
 }
 
-</style>
-<div>
-<section class="user_bar">
-{% if user.is_authenticated %}
-  You are signed in as - {{ user.username }}
-{% endif %}
-</section>
-</div>
 
+</style>
 <section class="navigation fixed-top">
     <div class="nav-container">
         <div class="brand">
-            <a href="/">TeamX</a>
+            <a href="/">TGCS</a>
         </div>
         <nav class=>
             <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
@@ -208,21 +210,32 @@
                 <a href="{% url 'help' %}">Help</a>
             </li>
             <li>
-                <a href="{% url 'logout' %}">Logout</a>
+				{% if user.is_authenticated %}
+				<a href="{% url 'logout' %}">Hello {{ user.username }}, Logout?</a>
+				{% else %}
+				<a href="{% url 'login' %}">You are not signed in, Login?</a>
+				{% endif %}
             </li>
-            </ul>
+			</ul>
         </nav>
-    </div>
+	</div>
+	<!--
+	<div>
+		<section class="user_bar">
+		<a href=""> Flash Sale! 1 Hour Remaining! </a>
+		</section>
+	</div>
+	-->
 </section>
-
-
 
 <style>
 .user_bar{
-	background-color: #7bb67e;
+	background-color: #4d4d4d;
 	color: dark-grey;
 	width: 100%;
-    height: auto;
+	height: auto;
+	position: relative;
+	margin-top:70px;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	padding-left: 10px;

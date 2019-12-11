@@ -21,7 +21,14 @@ a {
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.5);
     border-radius: 10px;
-    }
+}
+
+.box .inputBox input:-webkit-autofill,
+.box .inputBox input:-webkit-autofill:hover,
+.box .inputBox input:-webkit-autofill:focus,
+.box .inputBox input:-webkit-autofill:active {
+    -webkit-transition-delay: 99999s;
+}
 
 .box h2 {
     margin: 0 0 30px;
@@ -44,7 +51,7 @@ a {
     border: none;
     border-bottom: 1px solid #fff;
     outline: none;
-    background: transparent;
+    background-color: transparent !important;
 }
 
 .box .inputBox label {

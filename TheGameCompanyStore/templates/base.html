@@ -21,20 +21,8 @@
         <title>
             {% block title %} Page Title {% endblock %}
         </title>
-        {% if user.is_authenticated %}
-        {% include "./html/navbar.html" %}
-        <style type='text/css'>
-            body {
-                padding: 70px 0px 0px 0px;
-            }
-        </style>
     </head>
     <body>
-        {% block content %}
-        {% endblock %}
-        {% else %}
-        {% include "./html/landingpage.html" %}
-        {% comment %} <a href="{% url 'login' %}">login</a> {% endcomment %}
-        {% endif %}
+        {% include "./html/navbar.html" %}
     </body>
 </html>

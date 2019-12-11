@@ -125,5 +125,5 @@ STATICFILES_DIRS = [
     '/static/',
 ]
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/shop'
 LOGOUT_REDIRECT_URL = '/'
