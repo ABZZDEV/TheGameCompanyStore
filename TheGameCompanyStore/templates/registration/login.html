@@ -1,0 +1,48 @@
+<html>  
+    <head>
+    	{% load static %}
+        <meta charset="utf-8">
+        <title>MyWebsite | Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="{% static "./css/loginstyle.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "./css/w3.css" %}">
+		<style type="text/css">
+			body {
+    			margin: 0;
+    			padding: 0;
+    			font-family: sans-serif;
+    			background: url({% static "./images/background.jpg" %});
+    			background-size: cover;
+			}
+		</style>
+    </head>  
+    <body>
+        <div class="w3-display-topleft w3-padding-large w3-xlarge">
+            <a href="/">Site Name</a>
+        </div>
+        <div class="box">
+            <h2>Login</h2>
+            <form id="login-form" method="POST">
+            	{% csrf_token %}
+
+                <div class="inputBox validate-input" data-validate = "Username is required">
+                    <input id="inputEmail" type="text" name="username" required>
+                    <label>Username</label>
+                </div>
+                <div class="inputBox validate-input" data-validate = "Password is required">
+                    <input id="inputPass" type="password" name="password" required>
+                    <label>Password</label>
+                </div>
+                <input type="submit" name="" value="submit">
+
+                {% if form.errors %}
+                    <p class=" label label-danger" style="color: white;">
+                        Your username and password didn't match. 
+                        Please try again.
+                    </p>
+                {% endif %}
+
+            </form>
+        </div>
+    </body>
+</html>
