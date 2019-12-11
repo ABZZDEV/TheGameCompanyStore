@@ -7,6 +7,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from TeamXapp.views import (
     base,
+    body,
     index,
     login,
     all_teams,
@@ -16,6 +17,7 @@ from TeamXapp.views import (
     dashboard,
     team_details,
     all_people,
+    landing_page,
     all_developers,
     all_testers,
     all_product_owners,
@@ -27,8 +29,10 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/login', login),
     path('admin/', admin.site.urls),
-    path('', index),
-    path('', base),
+    path('', landing_page),
+    #path('shop/', index),
+    #path('shop/', base),
+    path('shop/', body),
     path('all_teams/' , all_teams    , name ='all_teams'), 
     path('about/'     , about        , name ='about'), 
     path('help/'      , help         , name ='help'), 

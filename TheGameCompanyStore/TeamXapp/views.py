@@ -6,9 +6,15 @@ from .forms import ContactForm
 
 
 # Create your views here.
+
+def landing_page(request):
+    return render(request, "./html/landingpage.html")
+
 def base(request):
     return render(request, "/base.html")
 
+def body(request):
+    return render(request, "./html/home.html")
 
 def login(request):
     target_page = "./registration/login.html"

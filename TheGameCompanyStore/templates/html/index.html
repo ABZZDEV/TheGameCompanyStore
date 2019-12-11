@@ -5,7 +5,6 @@
  {% comment %}  Hi {{ user.username }}!
   <p><a href="{% url 'logout' %}">logout</a></p> {% endcomment %}
 {% else %}
-  {% include "./landingpage.html" %}
   {% comment %} <a href="{% url 'login' %}">login</a> {% endcomment %}
 {% endif %}
 {% endblock %}
