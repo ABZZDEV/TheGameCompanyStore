@@ -1,15 +1,74 @@
+<?php 
+if(isset($_POST['submit'])){
+    $to = "thegamecompanyofficial@gmail.com"; // this is your Email address
+    $from = $_POST['email']; // this is the sender's Email address
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $subject = "Form submission" . $_POST['subject'];
+    $subject2 = "Copy of your form submission" . $_POST['subject'];
+    $message = $first_name . " " . $last_name . " wrote the following:" . "\n\n" . $_POST['message'] . "\n\n" . "Phone:" . $_POST['phone'];
+    $message2 = "Here is a copy of your message " . $first_name . "\n\n" . $_POST['message'];
+
+    $headers = "From:" . $from;
+    $headers2 = "From:" . $to;
+    $myfile = fopen("newfile.txt", "+a") or die("Unable to open file!");
+    $txt = $_POST['first_name'] . "\n" . $_POST['last_name'] . "\n" . $_POST['email'] . "\n" . $_POST['phone'] . "\n\n";
+    fwrite($myfile, $txt);
+    fclose($myfile);
+    mail($to,$subject,$message,$headers);
+    mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
+    header('Location: index.html');
+    exit();
+    }
+
+if(isset($_POST['submit2'])){
+    $to = "thegamecompanyofficial@gmail.com"; // this is your Email address
+    $from = $_POST['email2']; // this is the sender's Email address
+    $subject = "Customer Subscribed";
+    $subject2 = "Thank You For Your Subscription" . $_POST['subject'];
+    $message = $_POST['email2'] . " has Subscribed:";
+    $message2 = "You will now recive email updates.";
+
+    $headers = "From:" . $from;
+    $headers2 = "From:" . $to;
+    $myfile = fopen("newfile.txt", "+a") or die("Unable to open file!");
+    $txt = $_POST['email2'] . "\n\n";
+    fwrite($myfile, $txt);
+    fclose($myfile);
+    mail($to,$subject,$message,$headers);
+    mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
+    }
+
+  if(isset($_POST['submit3'])){
+    $to = "thegamecompanyofficial@gmail.com"; // this is your Email address
+    $from = $_POST['email3']; // this is the sender's Email address
+    $subject = "Customer Subscribed";
+    $subject2 = "Thank You For Your Subscription" . $_POST['subject'];
+    $message = $_POST['email3'] . " has Subscribed:";
+    $message2 = "You will now recive email updates.";
+
+    $headers = "From:" . $from;
+    $headers2 = "From:" . $to;
+    $myfile = fopen("newfile.txt", "+a") or die("Unable to open file!");
+    $txt = $_POST['email3'] . "\n\n";
+    fwrite($myfile, $txt);
+    fclose($myfile);
+    mail($to,$subject,$message,$headers);
+    mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
+    }
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
-    {% load static %}
-    <title>The Game Company | Home</title>
+    <title>The Game Company | Galil</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:type" content="website" />
     <meta name="description" content="Buy and Sell your beautiful skins today!">
-    <meta name="og:title" property="og:title" content="The Game Company | Home">
+    <meta name="og:title" property="og:title" content="The Game Company | Galil">
     <meta name="og:description" property="og:description" content="Buy and Sell your beautiful skins today!">
-    <meta property="og:image" content="static/images/landingbg.jpg" />
+    <meta property="og:image" content="./img/landingbg.jpg" />
     <meta name="author" content="Abzzdev">
     <meta name="keywords" content="Skins, CSS, CSGO, PUBG, VGO, Fortnite">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -17,7 +76,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-
     .w3-sidebar a {font-family: "Roboto", sans-serif}
     body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 
@@ -28,30 +86,29 @@
     margin-left: -200px;
     z-index: 2;
     }
-
     </style>
   </head>
-  <body class="w3-content" style="max-width:100%">
+  <body class="w3-content" style="max-width:1200px">
     <!-- Sidebar/menu -->
-    <nav class="w3-sidebar w3-bar-block w3-white w3-collapse" style="z-index:3;width:250px" id="mySidebar">
+    <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
       <div class="w3-container w3-display-container w3-padding-16">
         <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
         <h3 class="w3-wide"><b>The Game Company</b></h3>
       </div>
       <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
-        <a href="/" class="w3-bar-item w3-button">Home</a>
+        <a href="./home.html" class="w3-bar-item w3-button">Home</a>
         <a onclick="irlknivesAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn6">
           IRL CSGO Knives <i class="fa fa-caret-down"></i>
         </a>
         <div id="irlknivesAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
           <a href="irlknives.html" class="w3-bar-item w3-button">All</a>
-          <a href="#" class="w3-bar-item w3-button">Karambit</a>
-          <a href="./irlknives/butterflyknife.html" class="w3-bar-item w3-button">Butterfly Knife</a>
-          <a href="#" class="w3-bar-item w3-button">Huntsman Knife</a>
-          <a href="#" class="w3-bar-item w3-button">M9 Bayonet</a>
-          <a href="#" class="w3-bar-item w3-button">Flip Knife</a>
-          <a href="#" class="w3-bar-item w3-button">Falchion</a>
-          <a href="#" class="w3-bar-item w3-button">Gut Knife</a>
+          <a href="../irlknives/karambit.html" class="w3-bar-item w3-button">Karambit</a>
+          <a href="../irlknives/butterflyknife.html" class="w3-bar-item w3-button">Butterfly Knife</a>
+          <a href="../irlknives/huntsmanknives.html" class="w3-bar-item w3-button">Huntsman Knife</a>
+          <a href="../irlknives/m9bayonetknife.html" class="w3-bar-item w3-button">M9 Bayonet</a>
+          <a href="../irlknives/flipknife.html" class="w3-bar-item w3-button">Flip Knife</a>
+          <a href="../irlknives/falchionknife.html" class="w3-bar-item w3-button">Falchion</a>
+          <a href="../irlknives/gutknife.html" class="w3-bar-item w3-button">Gut Knife</a>
         </div>
 
         <!-- All CSGO SKINS BELOW -->
@@ -60,82 +117,82 @@
           CSGO Skins <i class="fa fa-caret-down"></i>
         </a>
         <div id="mainAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-          <a href="csgo.html" class="w3-bar-item w3-button">All</a>
+          <a href="../../csgo.html" class="w3-bar-item w3-button">All</a>
           <a onclick="pistolAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn2">
             Pistols <i class="fa fa-caret-down"></i>
           </a>
           <div id="pistolAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-            <a href="./csgoskins/pistols/p2000.html" class="w3-bar-item w3-button">P2000</a>
-            <a href="./csgoskins/pistols/usps.html" class="w3-bar-item w3-button">USP-S</a>
-            <a href="./csgoskins/pistols/glock.html" class="w3-bar-item w3-button">Glock 18</a>
-            <a href="./csgoskins/pistols/p250.html" class="w3-bar-item w3-button">P250</a>
-            <a href="./csgoskins/pistols/fiveseven.html" class="w3-bar-item w3-button">Five SeveN</a>
-            <a href="./csgoskins/pistols/tec9.html" class="w3-bar-item w3-button">Tec-9</a>
-            <a href="./csgoskins/pistols/cz75.html" class="w3-bar-item w3-button">CZ75 Auto</a>
-            <a href="./csgoskins/pistols/dualberettas.html" class="w3-bar-item w3-button">Dual Berettas</a>
-            <a href="./csgoskins/pistols/deagle.html" class="w3-bar-item w3-button">Deagle</a>
-            <a href="./csgoskins/pistols/r8.html" class="w3-bar-item w3-button">R8 Revolver</a>
+            <a href="../pistols/p2000.html" class="w3-bar-item w3-button">P2000</a>
+            <a href="../pistols/usps.html" class="w3-bar-item w3-button">USP-S</a>
+            <a href="../pistols/glock.html" class="w3-bar-item w3-button">Glock 18</a>
+            <a href="../pistols/p250.html" class="w3-bar-item w3-button">P250</a>
+            <a href="../pistols/fiveseven.html" class="w3-bar-item w3-button">Five SeveN</a>
+            <a href="../pistols/tec9.html" class="w3-bar-item w3-button">Tec-9</a>
+            <a href="../pistols/cz75.html" class="w3-bar-item w3-button">CZ75 Auto</a>
+            <a href="../pistols/dualberettas.html" class="w3-bar-item w3-button">Dual Berettas</a>
+            <a href="../pistols/deagle.html" class="w3-bar-item w3-button">Deagle</a>
+            <a href="../pistols/r8.html" class="w3-bar-item w3-button">R8 Revolver</a>
           </div>
 
           <a onclick="smgAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn3">
             SMG's <i class="fa fa-caret-down"></i>
           </a>
           <div id="smgAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-            <a href="./csgoskins/smgs/mp9.html" class="w3-bar-item w3-button">MP9</a>
-            <a href="./csgoskins/smgs/mac10.html" class="w3-bar-item w3-button">MAC-10</a>
-            <a href="./csgoskins/smgs/ppbizon.html" class="w3-bar-item w3-button">PP-Bizon</a>
-            <a href="./csgoskins/smgs/mp7.html" class="w3-bar-item w3-button">MP7</a>
-            <a href="./csgoskins/smgs/ump45.html" class="w3-bar-item w3-button">UMP-45</a>
-            <a href="./csgoskins/smgs/p90.html" class="w3-bar-item w3-button">P90</a>
-            <a href="./csgoskins/smgs/mp5sd.html" class="w3-bar-item w3-button">MP5-SD</a>
+            <a href="../smgs/mp9.html" class="w3-bar-item w3-button">MP9</a>
+            <a href="../smgs/mac10.html" class="w3-bar-item w3-button">MAC-10</a>
+            <a href="../smgs/ppbizon.html" class="w3-bar-item w3-button">PP-Bizon</a>
+            <a href="../smgs/mp7.html" class="w3-bar-item w3-button">MP7</a>
+            <a href="../smgs/ump45.html" class="w3-bar-item w3-button">UMP-45</a>
+            <a href="../smgs/p90.html" class="w3-bar-item w3-button">P90</a>
+            <a href="../smgs/mp5sd.html" class="w3-bar-item w3-button">MP5-SD</a>
           </div>
 
           <a onclick="rifleAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn4">
             Rifles <i class="fa fa-caret-down"></i>
           </a>
           <div id="rifleAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-            <a href="./csgoskins/rifles/famas.html" class="w3-bar-item w3-button">FAMAS</a>
-            <a href="./csgoskins/rifles/galil.html" class="w3-bar-item w3-button">Galil AR</a>
-            <a href="./csgoskins/rifles/m4a4.html" class="w3-bar-item w3-button">M4A4</a>
-            <a href="./csgoskins/rifles/m4a1s.html" class="w3-bar-item w3-button">M4A1-S</a>
-            <a href="./csgoskins/rifles/ak47.html" class="w3-bar-item w3-button">AK-47</a>
-            <a href="./csgoskins/rifles/aug.html" class="w3-bar-item w3-button">AUG</a>
-            <a href="./csgoskins/rifles/sg553.html" class="w3-bar-item w3-button">SG 553</a>
-            <a href="./csgoskins/rifles/ssg08.html" class="w3-bar-item w3-button">SSG 08</a>
-            <a href="./csgoskins/rifles/awp.html" class="w3-bar-item w3-button">AWP</a>
-            <a href="./csgoskins/rifles/scar20.html" class="w3-bar-item w3-button">SCAR-20</a>
-            <a href="./csgoskins/rifles/g3sg1.html" class="w3-bar-item w3-button">G3SG1</a>
+            <a href="../rifles/famas.html" class="w3-bar-item w3-button">FAMAS</a>
+            <a href="../rifles/galil.html" class="w3-bar-item w3-button">Galil AR</a>
+            <a href="../rifles/m4a4.html" class="w3-bar-item w3-button">M4A4</a>
+            <a href="../rifles/m4a1s.html" class="w3-bar-item w3-button">M4A1-S</a>
+            <a href="../rifles/ak47.html" class="w3-bar-item w3-button">AK-47</a>
+            <a href="../rifles/aug.html" class="w3-bar-item w3-button">AUG</a>
+            <a href="../rifles/sg553.html" class="w3-bar-item w3-button">SG 553</a>
+            <a href="../rifles/ssg08.html" class="w3-bar-item w3-button">SSG 08</a>
+            <a href="../rifles/awp.html" class="w3-bar-item w3-button">AWP</a>
+            <a href="../rifles/scar20.html" class="w3-bar-item w3-button">SCAR-20</a>
+            <a href="../rifles/g3sg1.html" class="w3-bar-item w3-button">G3SG1</a>
           </div>
 
           <a onclick="heavyAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn5">
             Heavy <i class="fa fa-caret-down"></i>
           </a>
           <div id="heavyAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-            <a href="./csgoskins/heavies/nova.html" class="w3-bar-item w3-button">Nova</a>
-            <a href="./csgoskins/heavies/xm1014.html" class="w3-bar-item w3-button">XM1014</a>
-            <a href="./csgoskins/heavies/mag7.html" class="w3-bar-item w3-button">MAG-7</a>
-            <a href="./csgoskins/heavies/sawedoff.html" class="w3-bar-item w3-button">Sawed-Off</a>
-            <a href="./csgoskins/heavies/m249.html" class="w3-bar-item w3-button">M249</a>
-            <a href="./csgoskins/heavies/negev.html" class="w3-bar-item w3-button">Negev</a>
+            <a href="../heavies/nova.html" class="w3-bar-item w3-button">Nova</a>
+            <a href="../heavies/xm1014.html" class="w3-bar-item w3-button">XM1014</a>
+            <a href="../heavies/mag7.html" class="w3-bar-item w3-button">MAG-7</a>
+            <a href="../heavies/sawedoff.html" class="w3-bar-item w3-button">Sawed-Off</a>
+            <a href="../heavies/m249.html" class="w3-bar-item w3-button">M249</a>
+            <a href="../heavies/negev.html" class="w3-bar-item w3-button">Negev</a>
           </div>
 
         <a onclick="knifeAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn5">
           Knifes <i class="fa fa-caret-down"></i>
         </a>
         <div id="knifeAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-          <a href="./csgoskins/knives/huntsmanknife.html" class="w3-bar-item w3-button">Huntsman Knife</a>
-          <a href="./csgoskins/knives/flipknife.html" class="w3-bar-item w3-button">Flip Knife</a>
-          <a href="./csgoskins/knives/karambit.html" class="w3-bar-item w3-button">Karambit</a>
-          <a href="./csgoskins/knives/bayonetknife.html" class="w3-bar-item w3-button">Bayonet Knife</a>
-          <a href="./csgoskins/knives/m9bayonetknife.html" class="w3-bar-item w3-button">M9 Bayonet Knife</a>
-          <a href="./csgoskins/knives/shadowdaggers.html" class="w3-bar-item w3-button">Shadow Daggers</a>
-          <a href="./csgoskins/knives/bowieknife.html" class="w3-bar-item w3-button">Bowie Knife</a>
-          <a href="./csgoskins/knives/navaja.html" class="w3-bar-item w3-button">Navaja</a>
-          <a href="./csgoskins/knives/falchionknife.html" class="w3-bar-item w3-button">Falchion Knife</a>
-          <a href="./csgoskins/knives/stiletto.html" class="w3-bar-item w3-button">Stiletto</a>
-          <a href="./csgoskins/knives/talon.html" class="w3-bar-item w3-button">Talon</a>
-          <a href="./csgoskins/knives/ursus.html" class="w3-bar-item w3-button">Ursus</a>
-          <a href="./csgoskins/knives/gutknife.html" class="w3-bar-item w3-button">Gut Knife</a>
+          <a href="../knives/huntsmanknife.html" class="w3-bar-item w3-button">Huntsman Knife</a>
+          <a href="../knives/flipknife.html" class="w3-bar-item w3-button">Flip Knife</a>
+          <a href="../knives/karambit.html" class="w3-bar-item w3-button">Karambit</a>
+          <a href="../knives/bayonetknife.html" class="w3-bar-item w3-button">Bayonet Knife</a>
+          <a href="../knives/m9bayonetknife.html" class="w3-bar-item w3-button">M9 Bayonet Knife</a>
+          <a href="../knives/shadowdaggers.html" class="w3-bar-item w3-button">Shadow Daggers</a>
+          <a href="../knives/bowieknife.html" class="w3-bar-item w3-button">Bowie Knife</a>
+          <a href="../knives/navaja.html" class="w3-bar-item w3-button">Navaja</a>
+          <a href="../knives/falchionknife.html" class="w3-bar-item w3-button">Falchion Knife</a>
+          <a href="../knives/stiletto.html" class="w3-bar-item w3-button">Stiletto</a>
+          <a href="../knives/talon.html" class="w3-bar-item w3-button">Talon</a>
+          <a href="../knives/ursus.html" class="w3-bar-item w3-button">Ursus</a>
+          <a href="../knives/gutknife.html" class="w3-bar-item w3-button">Gut Knife</a>
         </div>
       </div>
       
@@ -147,87 +204,87 @@
           VGO Skins <i class="fa fa-caret-down"></i>
         </a>
         <div id="vgomainAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-          <a href="vgo.html" class="w3-bar-item w3-button">All</a>
+          <a href="../vgo.html" class="w3-bar-item w3-button">All</a>
           <a onclick="vgopistolAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn2">
             Pistols <i class="fa fa-caret-down"></i>
           </a>
           <div id="vgopistolAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-            <a href="./vgoskins/pistols/p2000.html" class="w3-bar-item w3-button">P2000</a>
-            <a href="./vgoskins/pistols/usps.html" class="w3-bar-item w3-button">USP-S</a>
-            <a href="./vgoskins/pistols/glock.html" class="w3-bar-item w3-button">Glock 18</a>
-            <a href="./vgoskins/pistols/p250.html" class="w3-bar-item w3-button">P250</a>
-            <a href="./vgoskins/pistols/fiveseven.html" class="w3-bar-item w3-button">Five SeveN</a>
-            <a href="./vgoskins/pistols/tec9.html" class="w3-bar-item w3-button">Tec-9</a>
-            <a href="./vgoskins/pistols/cz75.html" class="w3-bar-item w3-button">CZ75 Auto</a>
-            <a href="./vgoskins/pistols/dualberettas.html" class="w3-bar-item w3-button">Dual Berettas</a>
-            <a href="./vgoskins/pistols/deagle.html" class="w3-bar-item w3-button">Deagle</a>
-            <a href="./vgoskins/pistols/r8.html" class="w3-bar-item w3-button">R8 Revolver</a>
+            <a href="../../vgoskins/pistols/p2000.html" class="w3-bar-item w3-button">P2000</a>
+            <a href="../../vgoskins/pistols/usps.html" class="w3-bar-item w3-button">USP-S</a>
+            <a href="../../vgoskins/pistols/glock.html" class="w3-bar-item w3-button">Glock 18</a>
+            <a href="../../vgoskins/pistols/p250.html" class="w3-bar-item w3-button">P250</a>
+            <a href="../../vgoskins/pistols/fiveseven.html" class="w3-bar-item w3-button">Five SeveN</a>
+            <a href="../../vgoskins/pistols/tec9.html" class="w3-bar-item w3-button">Tec-9</a>
+            <a href="../../vgoskins/pistols/cz75.html" class="w3-bar-item w3-button">CZ75 Auto</a>
+            <a href="../../vgoskins/pistols/dualberettas.html" class="w3-bar-item w3-button">Dual Berettas</a>
+            <a href="../../vgoskins/pistols/deagle.html" class="w3-bar-item w3-button">Deagle</a>
+            <a href="../../vgoskins/pistols/r8.html" class="w3-bar-item w3-button">R8 Revolver</a>
           </div>
 
           <a onclick="vgosmgAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn3">
             SMG's <i class="fa fa-caret-down"></i>
           </a>
           <div id="vgosmgAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-            <a href="./vgoskins/smgs/mp9.html" class="w3-bar-item w3-button">MP9</a>
-            <a href="./vgoskins/smgs/mac10.html" class="w3-bar-item w3-button">MAC-10</a>
-            <a href="./vgoskins/smgs/ppbizon.html" class="w3-bar-item w3-button">PP-Bizon</a>
-            <a href="./vgoskins/smgs/mp7.html" class="w3-bar-item w3-button">MP7</a>
-            <a href="./vgoskins/smgs/ump45.html" class="w3-bar-item w3-button">UMP-45</a>
-            <a href="./vgoskins/smgs/p90.html" class="w3-bar-item w3-button">P90</a>
-            <a href="./vgoskins/smgs/mp5sd.html" class="w3-bar-item w3-button">MP5-SD</a>
+            <a href="../../vgoskins/smgs/mp9.html" class="w3-bar-item w3-button">MP9</a>
+            <a href="../../vgoskins/smgs/mac10.html" class="w3-bar-item w3-button">MAC-10</a>
+            <a href="../../vgoskins/smgs/ppbizon.html" class="w3-bar-item w3-button">PP-Bizon</a>
+            <a href="../../vgoskins/smgs/mp7.html" class="w3-bar-item w3-button">MP7</a>
+            <a href="../../vgoskins/smgs/ump45.html" class="w3-bar-item w3-button">UMP-45</a>
+            <a href="../../vgoskins/smgs/p90.html" class="w3-bar-item w3-button">P90</a>
+            <a href="../../vgoskins/smgs/mp5sd.html" class="w3-bar-item w3-button">MP5-SD</a>
           </div>
 
           <a onclick="vgorifleAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn4">
             Rifles <i class="fa fa-caret-down"></i>
           </a>
           <div id="vgorifleAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-            <a href="./vgoskins/rifles/famas.html" class="w3-bar-item w3-button">FAMAS</a>
-            <a href="./vgoskins/rifles/galil.html" class="w3-bar-item w3-button">Galil AR</a>
-            <a href="./vgoskins/rifles/m4a4.html" class="w3-bar-item w3-button">M4A4</a>
-            <a href="./vgoskins/rifles/m4a1s.html" class="w3-bar-item w3-button">M4A1-S</a>
-            <a href="./vgoskins/rifles/ak47.html" class="w3-bar-item w3-button">AK-47</a>
-            <a href="./vgoskins/rifles/aug.html" class="w3-bar-item w3-button">AUG</a>
-            <a href="./vgoskins/rifles/sg553.html" class="w3-bar-item w3-button">SG 553</a>
-            <a href="./vgoskins/rifles/ssg08.html" class="w3-bar-item w3-button">SSG 08</a>
-            <a href="./vgoskins/rifles/awp.html" class="w3-bar-item w3-button">AWP</a>
-            <a href="./vgoskins/rifles/scar20.html" class="w3-bar-item w3-button">SCAR-20</a>
-            <a href="./vgoskins/rifles/g3sg1.html" class="w3-bar-item w3-button">G3SG1</a>
+            <a href="../../vgoskins/rifles/famas.html" class="w3-bar-item w3-button">FAMAS</a>
+            <a href="../../vgoskins/rifles/galil.html" class="w3-bar-item w3-button">Galil AR</a>
+            <a href="../../vgoskins/rifles/m4a4.html" class="w3-bar-item w3-button">M4A4</a>
+            <a href="../../vgoskins/rifles/m4a1s.html" class="w3-bar-item w3-button">M4A1-S</a>
+            <a href="../../vgoskins/rifles/ak47.html" class="w3-bar-item w3-button">AK-47</a>
+            <a href="../../vgoskins/rifles/aug.html" class="w3-bar-item w3-button">AUG</a>
+            <a href="../../vgoskins/rifles/sg553.html" class="w3-bar-item w3-button">SG 553</a>
+            <a href="../../vgoskins/rifles/ssg08.html" class="w3-bar-item w3-button">SSG 08</a>
+            <a href="../../vgoskins/rifles/awp.html" class="w3-bar-item w3-button">AWP</a>
+            <a href="../../vgoskins/rifles/scar20.html" class="w3-bar-item w3-button">SCAR-20</a>
+            <a href="../../vgoskins/rifles/g3sg1.html" class="w3-bar-item w3-button">G3SG1</a>
           </div>
 
           <a onclick="vgoheavyAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn5">
             Heavy <i class="fa fa-caret-down"></i>
           </a>
           <div id="vgoheavyAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-            <a href="./vgoskins/heavies/nova.html" class="w3-bar-item w3-button">Nova</a>
-            <a href="./vgoskins/heavies/xm1014.html" class="w3-bar-item w3-button">XM1014</a>
-            <a href="./vgoskins/heavies/mag7.html" class="w3-bar-item w3-button">MAG-7</a>
-            <a href="./vgoskins/heavies/sawedoff.html" class="w3-bar-item w3-button">Sawed-Off</a>
-            <a href="./vgoskins/heavies/m249.html" class="w3-bar-item w3-button">M249</a>
-            <a href="./vgoskins/heavies/negev.html" class="w3-bar-item w3-button">Negev</a>
+            <a href="../../vgoskins/heavies/nova.html" class="w3-bar-item w3-button">Nova</a>
+            <a href="../../vgoskins/heavies/xm1014.html" class="w3-bar-item w3-button">XM1014</a>
+            <a href="../../vgoskins/heavies/mag7.html" class="w3-bar-item w3-button">MAG-7</a>
+            <a href="../../vgoskins/heavies/sawedoff.html" class="w3-bar-item w3-button">Sawed-Off</a>
+            <a href="../../vgoskins/heavies/m249.html" class="w3-bar-item w3-button">M249</a>
+            <a href="../../vgoskins/heavies/negev.html" class="w3-bar-item w3-button">Negev</a>
           </div>
 
         <a onclick="vgoknifeAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn5">
           Knifes <i class="fa fa-caret-down"></i>
         </a>
         <div id="vgoknifeAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-          <a href="./vgoskins/knives/huntsmanknife.html" class="w3-bar-item w3-button">Huntsman Knife</a>
-          <a href="./vgoskins/knives/flipknife.html" class="w3-bar-item w3-button">Flip Knife</a>
-          <a href="./vgoskins/knives/karambit.html" class="w3-bar-item w3-button">Karambit</a>
-          <a href="./vgoskins/knives/bayonetknife.html" class="w3-bar-item w3-button">Bayonet Knife</a>
-          <a href="./vgoskins/knives/m9bayonetknife.html" class="w3-bar-item w3-button">M9 Bayonet Knife</a>
-          <a href="./vgoskins/knives/shadowdaggers.html" class="w3-bar-item w3-button">Shadow Daggers</a>
-          <a href="./vgoskins/knives/bowieknife.html" class="w3-bar-item w3-button">Bowie Knife</a>
-          <a href="./vgoskins/knives/navaja.html" class="w3-bar-item w3-button">Navaja</a>
-          <a href="./vgoskins/knives/falchionknife.html" class="w3-bar-item w3-button">Falchion Knife</a>
-          <a href="./vgoskins/knives/stiletto.html" class="w3-bar-item w3-button">Stiletto</a>
-          <a href="./vgoskins/knives/talon.html" class="w3-bar-item w3-button">Talon</a>
-          <a href="./vgoskins/knives/ursus.html" class="w3-bar-item w3-button">Ursus</a>
-          <a href="./vgoskins/knives/gutknife.html" class="w3-bar-item w3-button">Gut Knife</a>
+          <a href="../../vgoskins/knives/huntsmanknife.html" class="w3-bar-item w3-button">Huntsman Knife</a>
+          <a href="../../vgoskins/knives/flipknife.html" class="w3-bar-item w3-button">Flip Knife</a>
+          <a href="../../vgoskins/knives/karambit.html" class="w3-bar-item w3-button">Karambit</a>
+          <a href="../../vgoskins/knives/bayonetknife.html" class="w3-bar-item w3-button">Bayonet Knife</a>
+          <a href="../../vgoskins/knives/m9bayonetknife.html" class="w3-bar-item w3-button">M9 Bayonet Knife</a>
+          <a href="../../vgoskins/knives/shadowdaggers.html" class="w3-bar-item w3-button">Shadow Daggers</a>
+          <a href="../../vgoskins/knives/bowieknife.html" class="w3-bar-item w3-button">Bowie Knife</a>
+          <a href="../../vgoskins/knives/navaja.html" class="w3-bar-item w3-button">Navaja</a>
+          <a href="../../vgoskins/knives/falchionknife.html" class="w3-bar-item w3-button">Falchion Knife</a>
+          <a href="../../vgoskins/knives/stiletto.html" class="w3-bar-item w3-button">Stiletto</a>
+          <a href="../../vgoskins/knives/talon.html" class="w3-bar-item w3-button">Talon</a>
+          <a href="../../vgoskins/knives/ursus.html" class="w3-bar-item w3-button">Ursus</a>
+          <a href="../../vgoskins/knives/gutknife.html" class="w3-bar-item w3-button">Gut Knife</a>
         </div>
       </div>
 
       <!-- All VGO SKINS END HERE -->
-      <a href="#" class="w3-bar-item w3-button">PUBG Skins</a>
+      <a href="../../pubg.html" class="w3-bar-item w3-button">PUBG Skins</a>
     </div>
     <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a>
     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a>
@@ -247,7 +304,7 @@
     
     <!-- Top header -->
     <header class="w3-container w3-xlarge">
-      <p class="w3-left">Home</p>
+      <p class="w3-left">CSGO Skins | Galil</p>
       <p class="w3-right">
         <i class="fa fa-shopping-cart w3-margin-right w3-button"></i>
         <i class="fa fa-search w3-button" onclick="myFunction()" id="searchbtn"></i>
@@ -259,7 +316,7 @@
 
     <!-- Image header -->
     <div class="w3-display-container w3-container">
-      <img src="{% static "./images/bigplaceholder.png" %}" alt="header" style="width:100%">
+      <img src="../../img/bigplaceholder.png" alt="header" style="width:100%">
       <div class="w3-display-topleft w3-text-white" style="padding:24px 48px">
         <h1 class="w3-jumbo w3-hide-small">New arrivals</h1>
         <h1 class="w3-hide-large w3-hide-medium">New arrivals</h1>
@@ -268,7 +325,7 @@
       </div>
     </div>
     <div class="w3-container w3-text-grey" id="jeans">
-      <p>8 items</p>
+      <p>16 items</p>
     </div>
     <!-- Product grid -->
     <div class="w3-row ">
@@ -287,42 +344,42 @@
       -->
       <div class="w3-container">
         <div class="w3-display-container">
-          <img src="{% static "./images/placeholder.jpg" %}" style="width:100%">
+          <img src="../img/slaughtersilverscrews.jpg" style="width:100%">
           <div class="w3-display-middle w3-display-hover">
             <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
           </div>
         </div>
-        <p>Name<br><b>$Price</b></p>
+        <p>SLAUGHTER SILVER<br><b>$39.99</b></p>
       </div>
       <div class="w3-container">
         <div class="w3-display-container">
-          <img src="{% static "./images/placeholder.jpg" %}" style="width:100%">
+          <img src="../img/vanillaupgraded.png" style="width:100%">
           <div class="w3-display-middle w3-display-hover">
             <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
           </div>
         </div>
-        <p>Name<br><b>$Price</b></p>
+        <p>VANILLA UPGRADED<br><b>$34.99</b></p>
       </div>
     </div>
     <div class="w3-col l3 s6">
       <div class="w3-container">
         <div class="w3-display-container">
-          <img src="{% static "./images/placeholder.jpg" %}" style="width:100%">
+          <img src="../img/bluesteelupgraded.png" style="width:100%">
           <span class="w3-tag w3-display-topleft">New</span>
           <div class="w3-display-middle w3-display-hover">
             <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
           </div>
         </div>
-        <p>Name<br><b>$Price</b></p>
+        <p>BLUE STEEL UPGRADED<br><b>$39.99</b></p>
       </div>
       <div class="w3-container">
         <div class="w3-display-container">
-          <img src="{% static "./images/placeholder.jpg" %}" style="width:100%">
+          <img src="../img/crimsonweb.jpg" style="width:100%">
           <div class="w3-display-middle w3-display-hover">
             <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
           </div>
         </div>
-        <p>Name<br><b>$Price</b></p>
+        <p>CRIMSON WEB<br><b>$49.99</b></p>
       </div>
     </div>
     <div class="w3-col l3 s6">
@@ -334,45 +391,133 @@
       -->
       <div class="w3-container">
         <div class="w3-display-container">
-          <img src="{% static "./images/placeholder.jpg" %}" style="width:100%">
+          <img src="../img/fade.jpg" style="width:100%">
           <div class="w3-display-middle w3-display-hover">
             <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
           </div>
         </div>
-        <p>Name<br><b>$Price</b></p>
+        <p>FADE<br><b>$39.99</b></p>
       </div>
       <div class="w3-container">
         <div class="w3-display-container">
-          <img src="{% static "./images/placeholder.jpg" %}" style="width:100%">
+          <img src="../img/fadeupgraded.jpg" style="width:100%">
           <span class="w3-tag w3-display-topleft">Sale</span>
           <div class="w3-display-middle w3-display-hover">
             <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
           </div>
         </div>
-        <p>Name<br><b class="w3-text-red">$Price</b></p>
+        <p>FADE UPGRADED<br><b class="w3-text-red">$35.99</b></p>
       </div>
     </div>
     <div class="w3-col l3 s6">
 
       <div class="w3-container">
         <div class="w3-display-container">
-          <img src="{% static "./images/placeholder.jpg" %}" style="width:100%">
+          <img src="../img/fadepurpletip.jpg" style="width:100%">
           <div class="w3-display-middle w3-display-hover">
             <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
           </div>
         </div>
-        <p>Name<br><b>$Price</b></p>
+        <p>FADE PURPLE TIP<br><b>$39.99</b></p>
       </div>
       <div class="w3-container">
         <div class="w3-display-container">
-          <img src="{% static "./images/placeholder.jpg" %}" style="width:100%">
+          <img src="../img/golden.jpg" style="width:100%">
           <div class="w3-display-middle w3-display-hover">
             <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
           </div>
         </div>
-        <p>Name<br><b>$Price</b></p>
+        <p>GOLDEN<br><b>$39.99</b></p>
       </div>
     </div>
+
+    <div class="w3-col l3 s6">
+
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="../img/slaughterchrome.jpg" style="width:100%">
+          <span class="w3-tag w3-display-topleft">New</span>
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+        </div>
+        <p>SLAUGHTER CHROME<br><b>$49.99</b></p>
+      </div>
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="../img/slaughterupgraded.jpg" style="width:100%">
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+        </div>
+        <p>SLAUGHTER UPGRADED<br><b>$39.99</b></p>
+      </div>
+    </div>
+    <div class="w3-col l3 s6">
+
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="../img/tigertooth.png" style="width:100%">
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+        </div>
+        <p>TIGER TOOTH<br><b>$39.99</b></p>
+      </div>
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="../img/blacknight.png" style="width:100%">
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+        </div>
+        <p>BLACK NIGHT<br><b>$39.99</b></p>
+      </div>
+    </div>
+    <div class="w3-col l3 s6">
+
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="../img/blacknightupgraded.png" style="width:100%">
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+        </div>
+        <p>BLACK NIGHT UPGRADED<br><b>$39.99</b></p>
+      </div>
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="../img/newslaughter.jpg" style="width:100%">
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+        </div>
+        <p>NEW SLAUGHTER<br><b>$49.99</b></p>
+      </div>
+    </div>
+    <div class="w3-col l3 s6">
+
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="../img/howlblackhandle.jpg" style="width:100%">
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+        </div>
+        <p>HOWL BLACK HANDLE<br><b>$49.99</b></p>
+      </div>
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="../img/gammadoppleremerald.jpg" style="width:100%">
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+        </div>
+        <p>GAMMA DOPPLER EMERALD<br><b>$49.99</b></p>
+      </div>
+    </div>
+
+
   </div>
   <!-- Subscribe section -->
   <div class="w3-container w3-black w3-padding-32">
