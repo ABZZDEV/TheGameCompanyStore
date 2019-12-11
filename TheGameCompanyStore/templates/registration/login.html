@@ -22,16 +22,26 @@
         </div>
         <div class="box">
             <h2>Login</h2>
-            <form>
-                <div class="inputBox">
-                    <input type="text" name="" required="">
+            <form id="login-form" method="POST">
+            	{% csrf_token %}
+
+                <div class="inputBox validate-input" data-validate = "Username is required">
+                    <input id="inputEmail" type="text" name="username" required>
                     <label>Username</label>
                 </div>
-                <div class="inputBox">
-                    <input type="password" name="" required="">
+                <div class="inputBox validate-input" data-validate = "Password is required">
+                    <input id="inputPass" type="password" name="password" required>
                     <label>Password</label>
                 </div>
                 <input type="submit" name="" value="submit">
+
+                {% if form.errors %}
+                    <p class=" label label-danger" style="color: white;">
+                        Your username and password didn't match. 
+                        Please try again.
+                    </p>
+                {% endif %}
+
             </form>
         </div>
     </body>
