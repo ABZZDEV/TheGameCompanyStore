@@ -7,6 +7,9 @@ from .forms import ContactForm
 
 # Create your views here.
 
+def sidenav(request):
+    return render(request, "./html/sidenav.html")
+
 def landing_page(request):
     return render(request, "./html/landingpage.html")
 

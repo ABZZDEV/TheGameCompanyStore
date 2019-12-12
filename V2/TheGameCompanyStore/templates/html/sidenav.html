@@ -1,0 +1,355 @@
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-bar-block w3-white w3-collapse" style="z-index:3;width:250px" id="mySidebar">
+        <div class="w3-container w3-display-container w3-padding-16">
+          <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+          <h3 class="w3-wide"><b>The Game Company</b></h3>
+        </div>
+        <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+          <a href="/" class="w3-bar-item w3-button">Home</a>
+          <a onclick="irlknivesAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn6">
+            IRL CSGO Knives <i class="fa fa-caret-down"></i>
+          </a>
+          <div id="irlknivesAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+            <a href="irlknives.html" class="w3-bar-item w3-button">All</a>
+            <a href="#" class="w3-bar-item w3-button">Karambit</a>
+            <a href="./irlknives/butterflyknife.html" class="w3-bar-item w3-button">Butterfly Knife</a>
+            <a href="#" class="w3-bar-item w3-button">Huntsman Knife</a>
+            <a href="#" class="w3-bar-item w3-button">M9 Bayonet</a>
+            <a href="#" class="w3-bar-item w3-button">Flip Knife</a>
+            <a href="#" class="w3-bar-item w3-button">Falchion</a>
+            <a href="#" class="w3-bar-item w3-button">Gut Knife</a>
+          </div>
+  
+          <!-- All CSGO SKINS BELOW -->
+  
+          <a onclick="mainAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+            CSGO Skins <i class="fa fa-caret-down"></i>
+          </a>
+          <div id="mainAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+            <a href="csgo.html" class="w3-bar-item w3-button">All</a>
+            <a onclick="pistolAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn2">
+              Pistols <i class="fa fa-caret-down"></i>
+            </a>
+            <div id="pistolAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+              <a href="./csgoskins/pistols/p2000.html" class="w3-bar-item w3-button">P2000</a>
+              <a href="./csgoskins/pistols/usps.html" class="w3-bar-item w3-button">USP-S</a>
+              <a href="./csgoskins/pistols/glock.html" class="w3-bar-item w3-button">Glock 18</a>
+              <a href="./csgoskins/pistols/p250.html" class="w3-bar-item w3-button">P250</a>
+              <a href="./csgoskins/pistols/fiveseven.html" class="w3-bar-item w3-button">Five SeveN</a>
+              <a href="./csgoskins/pistols/tec9.html" class="w3-bar-item w3-button">Tec-9</a>
+              <a href="./csgoskins/pistols/cz75.html" class="w3-bar-item w3-button">CZ75 Auto</a>
+              <a href="./csgoskins/pistols/dualberettas.html" class="w3-bar-item w3-button">Dual Berettas</a>
+              <a href="./csgoskins/pistols/deagle.html" class="w3-bar-item w3-button">Deagle</a>
+              <a href="./csgoskins/pistols/r8.html" class="w3-bar-item w3-button">R8 Revolver</a>
+            </div>
+  
+            <a onclick="smgAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn3">
+              SMG's <i class="fa fa-caret-down"></i>
+            </a>
+            <div id="smgAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+              <a href="./csgoskins/smgs/mp9.html" class="w3-bar-item w3-button">MP9</a>
+              <a href="./csgoskins/smgs/mac10.html" class="w3-bar-item w3-button">MAC-10</a>
+              <a href="./csgoskins/smgs/ppbizon.html" class="w3-bar-item w3-button">PP-Bizon</a>
+              <a href="./csgoskins/smgs/mp7.html" class="w3-bar-item w3-button">MP7</a>
+              <a href="./csgoskins/smgs/ump45.html" class="w3-bar-item w3-button">UMP-45</a>
+              <a href="./csgoskins/smgs/p90.html" class="w3-bar-item w3-button">P90</a>
+              <a href="./csgoskins/smgs/mp5sd.html" class="w3-bar-item w3-button">MP5-SD</a>
+            </div>
+  
+            <a onclick="rifleAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn4">
+              Rifles <i class="fa fa-caret-down"></i>
+            </a>
+            <div id="rifleAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+              <a href="./csgoskins/rifles/famas.html" class="w3-bar-item w3-button">FAMAS</a>
+              <a href="./csgoskins/rifles/galil.html" class="w3-bar-item w3-button">Galil AR</a>
+              <a href="./csgoskins/rifles/m4a4.html" class="w3-bar-item w3-button">M4A4</a>
+              <a href="./csgoskins/rifles/m4a1s.html" class="w3-bar-item w3-button">M4A1-S</a>
+              <a href="./csgoskins/rifles/ak47.html" class="w3-bar-item w3-button">AK-47</a>
+              <a href="./csgoskins/rifles/aug.html" class="w3-bar-item w3-button">AUG</a>
+              <a href="./csgoskins/rifles/sg553.html" class="w3-bar-item w3-button">SG 553</a>
+              <a href="./csgoskins/rifles/ssg08.html" class="w3-bar-item w3-button">SSG 08</a>
+              <a href="./csgoskins/rifles/awp.html" class="w3-bar-item w3-button">AWP</a>
+              <a href="./csgoskins/rifles/scar20.html" class="w3-bar-item w3-button">SCAR-20</a>
+              <a href="./csgoskins/rifles/g3sg1.html" class="w3-bar-item w3-button">G3SG1</a>
+            </div>
+  
+            <a onclick="heavyAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn5">
+              Heavy <i class="fa fa-caret-down"></i>
+            </a>
+            <div id="heavyAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+              <a href="./csgoskins/heavies/nova.html" class="w3-bar-item w3-button">Nova</a>
+              <a href="./csgoskins/heavies/xm1014.html" class="w3-bar-item w3-button">XM1014</a>
+              <a href="./csgoskins/heavies/mag7.html" class="w3-bar-item w3-button">MAG-7</a>
+              <a href="./csgoskins/heavies/sawedoff.html" class="w3-bar-item w3-button">Sawed-Off</a>
+              <a href="./csgoskins/heavies/m249.html" class="w3-bar-item w3-button">M249</a>
+              <a href="./csgoskins/heavies/negev.html" class="w3-bar-item w3-button">Negev</a>
+            </div>
+  
+          <a onclick="knifeAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn5">
+            Knifes <i class="fa fa-caret-down"></i>
+          </a>
+          <div id="knifeAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+            <a href="./csgoskins/knives/huntsmanknife.html" class="w3-bar-item w3-button">Huntsman Knife</a>
+            <a href="./csgoskins/knives/flipknife.html" class="w3-bar-item w3-button">Flip Knife</a>
+            <a href="./csgoskins/knives/karambit.html" class="w3-bar-item w3-button">Karambit</a>
+            <a href="./csgoskins/knives/bayonetknife.html" class="w3-bar-item w3-button">Bayonet Knife</a>
+            <a href="./csgoskins/knives/m9bayonetknife.html" class="w3-bar-item w3-button">M9 Bayonet Knife</a>
+            <a href="./csgoskins/knives/shadowdaggers.html" class="w3-bar-item w3-button">Shadow Daggers</a>
+            <a href="./csgoskins/knives/bowieknife.html" class="w3-bar-item w3-button">Bowie Knife</a>
+            <a href="./csgoskins/knives/navaja.html" class="w3-bar-item w3-button">Navaja</a>
+            <a href="./csgoskins/knives/falchionknife.html" class="w3-bar-item w3-button">Falchion Knife</a>
+            <a href="./csgoskins/knives/stiletto.html" class="w3-bar-item w3-button">Stiletto</a>
+            <a href="./csgoskins/knives/talon.html" class="w3-bar-item w3-button">Talon</a>
+            <a href="./csgoskins/knives/ursus.html" class="w3-bar-item w3-button">Ursus</a>
+            <a href="./csgoskins/knives/gutknife.html" class="w3-bar-item w3-button">Gut Knife</a>
+          </div>
+        </div>
+        
+        <!-- All CSGO SKINS END HERE -->
+  
+        <!-- All VGO SKINS BELOW -->
+  
+          <a onclick="vgomainAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+            VGO Skins <i class="fa fa-caret-down"></i>
+          </a>
+          <div id="vgomainAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+            <a href="vgo.html" class="w3-bar-item w3-button">All</a>
+            <a onclick="vgopistolAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn2">
+              Pistols <i class="fa fa-caret-down"></i>
+            </a>
+            <div id="vgopistolAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+              <a href="./vgoskins/pistols/p2000.html" class="w3-bar-item w3-button">P2000</a>
+              <a href="./vgoskins/pistols/usps.html" class="w3-bar-item w3-button">USP-S</a>
+              <a href="./vgoskins/pistols/glock.html" class="w3-bar-item w3-button">Glock 18</a>
+              <a href="./vgoskins/pistols/p250.html" class="w3-bar-item w3-button">P250</a>
+              <a href="./vgoskins/pistols/fiveseven.html" class="w3-bar-item w3-button">Five SeveN</a>
+              <a href="./vgoskins/pistols/tec9.html" class="w3-bar-item w3-button">Tec-9</a>
+              <a href="./vgoskins/pistols/cz75.html" class="w3-bar-item w3-button">CZ75 Auto</a>
+              <a href="./vgoskins/pistols/dualberettas.html" class="w3-bar-item w3-button">Dual Berettas</a>
+              <a href="./vgoskins/pistols/deagle.html" class="w3-bar-item w3-button">Deagle</a>
+              <a href="./vgoskins/pistols/r8.html" class="w3-bar-item w3-button">R8 Revolver</a>
+            </div>
+  
+            <a onclick="vgosmgAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn3">
+              SMG's <i class="fa fa-caret-down"></i>
+            </a>
+            <div id="vgosmgAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+              <a href="./vgoskins/smgs/mp9.html" class="w3-bar-item w3-button">MP9</a>
+              <a href="./vgoskins/smgs/mac10.html" class="w3-bar-item w3-button">MAC-10</a>
+              <a href="./vgoskins/smgs/ppbizon.html" class="w3-bar-item w3-button">PP-Bizon</a>
+              <a href="./vgoskins/smgs/mp7.html" class="w3-bar-item w3-button">MP7</a>
+              <a href="./vgoskins/smgs/ump45.html" class="w3-bar-item w3-button">UMP-45</a>
+              <a href="./vgoskins/smgs/p90.html" class="w3-bar-item w3-button">P90</a>
+              <a href="./vgoskins/smgs/mp5sd.html" class="w3-bar-item w3-button">MP5-SD</a>
+            </div>
+  
+            <a onclick="vgorifleAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn4">
+              Rifles <i class="fa fa-caret-down"></i>
+            </a>
+            <div id="vgorifleAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+              <a href="./vgoskins/rifles/famas.html" class="w3-bar-item w3-button">FAMAS</a>
+              <a href="./vgoskins/rifles/galil.html" class="w3-bar-item w3-button">Galil AR</a>
+              <a href="./vgoskins/rifles/m4a4.html" class="w3-bar-item w3-button">M4A4</a>
+              <a href="./vgoskins/rifles/m4a1s.html" class="w3-bar-item w3-button">M4A1-S</a>
+              <a href="./vgoskins/rifles/ak47.html" class="w3-bar-item w3-button">AK-47</a>
+              <a href="./vgoskins/rifles/aug.html" class="w3-bar-item w3-button">AUG</a>
+              <a href="./vgoskins/rifles/sg553.html" class="w3-bar-item w3-button">SG 553</a>
+              <a href="./vgoskins/rifles/ssg08.html" class="w3-bar-item w3-button">SSG 08</a>
+              <a href="./vgoskins/rifles/awp.html" class="w3-bar-item w3-button">AWP</a>
+              <a href="./vgoskins/rifles/scar20.html" class="w3-bar-item w3-button">SCAR-20</a>
+              <a href="./vgoskins/rifles/g3sg1.html" class="w3-bar-item w3-button">G3SG1</a>
+            </div>
+  
+            <a onclick="vgoheavyAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn5">
+              Heavy <i class="fa fa-caret-down"></i>
+            </a>
+            <div id="vgoheavyAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+              <a href="./vgoskins/heavies/nova.html" class="w3-bar-item w3-button">Nova</a>
+              <a href="./vgoskins/heavies/xm1014.html" class="w3-bar-item w3-button">XM1014</a>
+              <a href="./vgoskins/heavies/mag7.html" class="w3-bar-item w3-button">MAG-7</a>
+              <a href="./vgoskins/heavies/sawedoff.html" class="w3-bar-item w3-button">Sawed-Off</a>
+              <a href="./vgoskins/heavies/m249.html" class="w3-bar-item w3-button">M249</a>
+              <a href="./vgoskins/heavies/negev.html" class="w3-bar-item w3-button">Negev</a>
+            </div>
+  
+          <a onclick="vgoknifeAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn5">
+            Knifes <i class="fa fa-caret-down"></i>
+          </a>
+          <div id="vgoknifeAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+            <a href="./vgoskins/knives/huntsmanknife.html" class="w3-bar-item w3-button">Huntsman Knife</a>
+            <a href="./vgoskins/knives/flipknife.html" class="w3-bar-item w3-button">Flip Knife</a>
+            <a href="./vgoskins/knives/karambit.html" class="w3-bar-item w3-button">Karambit</a>
+            <a href="./vgoskins/knives/bayonetknife.html" class="w3-bar-item w3-button">Bayonet Knife</a>
+            <a href="./vgoskins/knives/m9bayonetknife.html" class="w3-bar-item w3-button">M9 Bayonet Knife</a>
+            <a href="./vgoskins/knives/shadowdaggers.html" class="w3-bar-item w3-button">Shadow Daggers</a>
+            <a href="./vgoskins/knives/bowieknife.html" class="w3-bar-item w3-button">Bowie Knife</a>
+            <a href="./vgoskins/knives/navaja.html" class="w3-bar-item w3-button">Navaja</a>
+            <a href="./vgoskins/knives/falchionknife.html" class="w3-bar-item w3-button">Falchion Knife</a>
+            <a href="./vgoskins/knives/stiletto.html" class="w3-bar-item w3-button">Stiletto</a>
+            <a href="./vgoskins/knives/talon.html" class="w3-bar-item w3-button">Talon</a>
+            <a href="./vgoskins/knives/ursus.html" class="w3-bar-item w3-button">Ursus</a>
+            <a href="./vgoskins/knives/gutknife.html" class="w3-bar-item w3-button">Gut Knife</a>
+          </div>
+        </div>
+  
+        <!-- All VGO SKINS END HERE -->
+        <a href="#" class="w3-bar-item w3-button">PUBG Skins</a>
+      </div>
+      <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a>
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a>
+      <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
+    </nav>
+    <!-- Top menu on small screens -->
+    <header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
+      <div class="w3-bar-item w3-padding-24 w3-wide">The Game Company</div>
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    </header>
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left:250px">
+      <!-- Push down content on small screens -->
+      <div class="w3-hide-large" style="margin-top:83px"></div>
+
+      <script>
+        // Accordion
+        function mainAccFunc() {
+        var x = document.getElementById("mainAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        } else {
+        x.className = x.className.replace(" w3-show", "");
+        }
+        }
+        
+        function pistolAccFunc(){
+        var x = document.getElementById("pistolAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        } else {
+        x.className = x.className.replace(" w3-show", "");
+        }
+        }
+        
+        function smgAccFunc(){
+        var x = document.getElementById("smgAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        } else {
+        x.className = x.className.replace(" w3-show", "");
+        }
+        }
+        
+        function rifleAccFunc(){
+        var x = document.getElementById("rifleAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        } else {
+        x.className = x.className.replace(" w3-show", "");
+        }
+        }
+        
+        function heavyAccFunc(){
+        var x = document.getElementById("heavyAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        } else {
+        x.className = x.className.replace(" w3-show", "");
+        }
+        }
+        
+        function knifeAccFunc(){
+        var x = document.getElementById("knifeAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        } else {
+        x.className = x.className.replace(" w3-show", "");
+        }
+        }
+        
+        function vgomainAccFunc() {
+        var x = document.getElementById("vgomainAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        } else {
+        x.className = x.className.replace(" w3-show", "");
+        }
+        }
+        
+        function vgopistolAccFunc(){
+        var x = document.getElementById("vgopistolAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        } else {
+        x.className = x.className.replace(" w3-show", "");
+        }
+        }
+        
+        function vgosmgAccFunc(){
+        var x = document.getElementById("vgosmgAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        } else {
+        x.className = x.className.replace(" w3-show", "");
+        }
+        }
+        
+        function vgorifleAccFunc(){
+        var x = document.getElementById("rifleAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        } else {
+        x.className = x.className.replace(" w3-show", "");
+        }
+        }
+        
+        function vgoheavyAccFunc(){
+        var x = document.getElementById("vgoheavyAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        } else {
+        x.className = x.className.replace(" w3-show", "");
+        }
+        }
+        
+        function vgoknifeAccFunc(){
+        var x = document.getElementById("vgoknifeAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        } else {
+        x.className = x.className.replace(" w3-show", "");
+        }
+        }
+        
+        function irlknivesAccFunc(){
+        var x = document.getElementById("irlknivesAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        } else {
+        x.className = x.className.replace(" w3-show", "");
+        }
+        }
+        // Click on the "Jeans" link on page load to open the accordion for demo purposes
+        // document.getElementById("myBtn").click();
+        // document.getElementById("myBtn2").click();
+        // Open and close sidebar
+        function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+        }
+        
+        function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+        }
+        
+        function myFunction() {
+          if (document.getElementById("form").style.display === "none") {
+               document.getElementById("form").style.display = "block";
+            } else {
+                document.getElementById("form").style.display = "none";
+            }
+        }
+        
+        document.getElementById("searchbtn").click();
+        </script>
